@@ -1,0 +1,12 @@
+{
+    "c": "c.png",
+    "c++": "cpp.png",
+    "c#": "cs.png",
+    "go": "go.png",
+    "java": "java.jpg",
+    "javascript": "js.png",
+    "kotlin": "kotlin.png",
+    "python": "python.webp",
+    "swift": "swift.png",
+    "typescript": "ts.png"
+}

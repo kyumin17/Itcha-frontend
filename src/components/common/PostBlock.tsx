@@ -1,5 +1,6 @@
 import { PostProps } from '@/types/types';
 import FieldBox from './FieldBox';
+import TechBox from './TechBox';
 
 const PostBlock = ({ postData }: { postData: PostProps }) => {
   return (
@@ -25,7 +26,7 @@ const PostBlock = ({ postData }: { postData: PostProps }) => {
       <div className='flex gap-2'>
         {postData.tech_stack.map((stack: string) => {
           return (
-            <FieldBox key={stack} fieldName={stack} />
+            <TechBox key={stack} tech={stack} />
           );
         })}
       </div>

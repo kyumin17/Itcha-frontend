@@ -10,7 +10,7 @@ const Home = () => {
       type: '스터디',
       title: '모집 제목',
       recruit_field: ['프론트엔드', '백엔드'],
-      tech_stack: ['기술 스택1', '기술 스택2'],
+      tech_stack: ['c', 'c++'],
       status: '모집중',
       deadline: '2025-05-07',
     },
@@ -19,7 +19,7 @@ const Home = () => {
       type: '프로젝트',
       title: '모집 제목2',
       recruit_field: ['AI'],
-      tech_stack: ['기술 스택3', '기술 스택4'],
+      tech_stack: ['javascript', 'typescript'],
       status: '모집완료',
       deadline: '2025-04-30',
     }
