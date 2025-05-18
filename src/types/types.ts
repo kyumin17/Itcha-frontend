@@ -10,3 +10,25 @@ export interface PostProps {
   recruit_field: string[];
   tech_stack: string[];
 };
+
+export interface SignupProps {
+  username: string;
+  password: string;
+  name: string;
+  email: string;
+};
+
+export interface CheckIdProps {
+  username: string;
+  is_taken: boolean;
+};
+
+export interface CheckMailProps {
+  email: string;
+  available: boolean;
+};
+
+export interface SignupResultProps {
+  state: 'success' | 'fail';
+  error: string;
+};
