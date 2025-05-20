@@ -32,3 +32,8 @@ export interface SignupResultProps {
   state: 'success' | 'fail';
   error: string;
 };
+
+export interface AuthProps {
+  access: string;
+  refresh: string;
+}

@@ -96,7 +96,7 @@ const Signup = () => {
       <div className='flex flex-col gap-6 mb-8'>
         <div>
           <div 
-            className={`px-2.5 py-0.5 border-1 rounded-sm flex items-center border${idFocus ? '-black' : '-neutral-300'}`}
+            className={`px-2.5 py-0.5 border-1 rounded-sm flex items-center ${idFocus ? 'border-black' : 'border-neutral-300'}`}
             onFocus={() => {setIdFocus(true)}}
             onBlur={() => {setIdFocus(false)}}
           >
@@ -119,7 +119,7 @@ const Signup = () => {
         <div>
           <div className='flex gap-2 mb-2'>
             <div 
-              className={`px-2.5 py-0.5 border-1 rounded-sm flex items-center border${mailFocus ? '-black' : '-neutral-300'}`}
+              className={`px-2.5 py-0.5 border-1 rounded-sm flex items-center ${mailFocus ? 'border-black' : 'border-neutral-300'}`}
               onFocus={() => {setMailFocus(true)}}
               onBlur={() => {setMailFocus(false)}}
             >
@@ -137,7 +137,7 @@ const Signup = () => {
                 @sogang.ac.kr
               </div>
             </div>
-            <button className={`text-[13px] text-white w-25 rounded-sm bg-${mail ? 'black' : 'neutral-300'}`}>
+            <button className={`text-[13px] text-white w-25 rounded-sm ${mail ? 'bg-black' : 'bg-neutral-300'}`}>
               인증하기
             </button>
           </div>
@@ -148,7 +148,7 @@ const Signup = () => {
 
         <div>
           <div 
-            className={`px-2.5 py-0.5 border-1 rounded-sm flex items-center border${pwFocus ? '-black' : '-neutral-300'}`}
+            className={`px-2.5 py-0.5 border-1 rounded-sm flex items-center ${pwFocus ? 'border-black' : 'border-neutral-300'}`}
             onFocus={() => {setPwFocus(true)}}
             onBlur={() => {setPwFocus(false)}}
           >
