@@ -37,3 +37,10 @@ export interface AuthProps {
   access: string;
   refresh: string;
 }
+
+export interface SigninResultProps {
+  error: string;
+  ok: boolean;
+  status: number;
+  url: null | string;
+};

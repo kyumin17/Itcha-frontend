@@ -17,8 +17,6 @@ const handler = NextAuth({
           password: credentials?.password,
         });
 
-        console.log(credentials);
-
         const user = response.data;
 
         if (user) {
@@ -42,6 +40,7 @@ const handler = NextAuth({
 
   pages: {
     signIn: '/login',
+    error: '/login',
   },
 })
 

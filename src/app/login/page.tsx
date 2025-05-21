@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import { signIn } from 'next-auth/react';
+import { signIn, SignInResponse } from 'next-auth/react';
 import { useRouter } from 'next/navigation';
 
 const Login = () => {
@@ -9,8 +9,30 @@ const Login = () => {
   const [idFocus, setIdFocus] = useState<boolean>(false);
   const [pw, setPw] = useState<string>('');
   const [pwFocus, setPwFocus] = useState<boolean>(false);
+  const [isFail, setIsFail] = useState<boolean>(false);
 
   const router = useRouter();
+
+  const login = async () => {
+    const response: SignInResponse | undefined = await signIn('credentials', {
+      username: id,
+      password: pw,
+      redirect: false,
+      callbackUrl: '/',
+    });
+
+    if (response && response.ok) {
+      router.push('/');
+    } else {
+      setIsFail(response ? !response.ok : false);
+    }
+  }
+
+  const getBorderStyle = (isFocus: boolean) => {
+    if (isFail) return 'border-red-500';
+    if (isFocus) return 'border-black';
+    else return 'border-neutral-300';
+  }
 
   return (
     <div className='w-100 absolute left-[50%] translate-x-[-50%]'>
@@ -18,10 +40,10 @@ const Login = () => {
         Itcha
       </div>
       {/* input form */}
-      <div className='flex flex-col gap-6 mb-8'>
+      <div className='flex flex-col gap-6 mb-3'>
         <div>
           <div 
-            className={`px-2.5 py-0.5 border-1 rounded-sm flex items-center ${idFocus ? 'border-black' : 'border-neutral-300'}`}
+            className={`px-2.5 py-0.5 border-1 rounded-sm flex items-center ${getBorderStyle(idFocus)}`}
             onFocus={() => {setIdFocus(true)}}
             onBlur={() => {setIdFocus(false)}}
           >
@@ -36,10 +58,10 @@ const Login = () => {
             />
           </div>
         </div>
-
+          
         <div>
           <div 
-            className={`px-2.5 py-0.5 border-1 rounded-sm flex items-center ${pwFocus ? 'border-black' : 'border-neutral-300'}`}
+            className={`px-2.5 py-0.5 border-1 rounded-sm flex items-center mb-1.5 ${getBorderStyle(pwFocus)}`}
             onFocus={() => {setPwFocus(true)}}
             onBlur={() => {setPwFocus(false)}}
           >
@@ -53,17 +75,15 @@ const Login = () => {
               }}
             />
           </div>
+          <div className='text-red-500 text-[13px] h-4'>
+            {isFail ? '아이디 혹은 비밀번호가 일치하지 않습니다. 다시 시도해 주세요.' : ''}
+          </div>
         </div>
       </div>
       {/* login button */}
       <button 
         className='bg-red-700 w-[100%] text-sm text-white rounded-md h-9 mb-4'
-        onClick={() => signIn('credentials', {
-          username: id,
-          password: pw,
-          redirect: true,
-          callbackUrl: '/',
-        })}
+        onClick={login}
       >
         로그인
       </button>
