@@ -1,8 +1,8 @@
-import { SignupResultProps } from '@/types/types';
+import { SignupDTO } from '@/types/dto';
 import http from './http';
 
 const signup = async (username: string, password: string, name: string, email: string) => {
-  let response: SignupResultProps = {
+  let response: SignupDTO = {
     state: 'fail',
     error: '',
   };

@@ -3,7 +3,7 @@
 import signup from '@/lib/api/signup';
 import { useRef, useState } from 'react';
 import http from '@/lib/api/http';
-import { CheckMailProps, CheckIdProps, SignupResultProps } from '@/types/types';
+import { CheckIdDTO, CheckMailDTO, SignupDTO } from '@/types/dto';
 import { useRouter } from 'next/navigation';
 
 const Signup = () => {
@@ -41,7 +41,7 @@ const Signup = () => {
     }
 
     try {
-      const response: CheckIdProps = await http.get(`/api/auth/check-username?username=${newId}`);
+      const response: CheckIdDTO = await http.get(`/api/auth/check-username?username=${newId}`);
       if (response.is_taken) {
         setIdError(`${id}은 이미 존재하는 아이디입니다`);
       }
@@ -54,7 +54,7 @@ const Signup = () => {
     setMailError('');
 
     try {
-      const response: CheckMailProps = await http.get(`/api/auth/check-username?username=${newMail}`);
+      const response: CheckMailDTO = await http.get(`/api/auth/check-username?username=${newMail}`);
       if (response.available) {
         setMailError('이미 해당 이메일로 가입한 계정이 있습니다\n계정을 잊으셨다면 아이디 및 비밀번호 찾기 기능을 이용해주세요');
       }
@@ -172,7 +172,7 @@ const Signup = () => {
       <button 
         className='bg-red-700 w-[100%] text-sm text-white rounded-md h-9'
         onClick={async () => {
-          const response: SignupResultProps = await signup(id, pw, name, mail);
+          const response: SignupDTO = await signup(id, pw, name, mail);
           if (response.state === 'success') {
             router.push('/');
           } else {

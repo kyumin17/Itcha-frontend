@@ -3,16 +3,18 @@
 import Header from '@/components/header/Header';
 import { useState } from 'react';
 import http from '@/lib/api/http';
-import { PostCreateProps, FieldProps } from '@/types/types';
+import { PostForm } from '@/types/form';
+import { Field } from '@/types/common';
 
 const Writing = () => {
   const [title, setTitle] = useState<string>('');
-  const [techStacks, setTechStacks] = useState<FieldProps[]>([]);
+  const [techStacks, setTechStacks] = useState<Field[]>([]);
   const [content, setContent] = useState<string>('');
+  const [recruitmentRequires, setRecruitmentRequires] = useState<string[]>([]);
 
   const save = async () => {
     try {
-      const form: PostCreateProps = {
+      const form: PostForm = {
         type: 'study',
         title: title,
         content: content,
