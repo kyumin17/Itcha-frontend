@@ -1,6 +1,6 @@
 import { useRouter } from 'next/navigation';
 
-const StartButtons = () => {
+const GuestButtons = () => {
   const router = useRouter();
 
   return (
@@ -21,4 +21,4 @@ const StartButtons = () => {
   );
 };
 
-export default StartButtons;
+export default GuestButtons;

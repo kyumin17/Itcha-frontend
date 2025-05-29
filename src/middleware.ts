@@ -11,7 +11,6 @@ const publicRoutes: string[] = ['/login', '/signup'];
 export const middleware = async (req: NextRequest) => {
   const token =  await getToken({ req, secret: process.env.NEXTAUTH_SECRET });
   const currentPath = req.nextUrl.pathname;
-  console.log(token);
 
   if (!token && protectedRoutes.includes(currentPath)) {
     return NextResponse.redirect(new URL('/signup', req.nextUrl.origin));

@@ -1,10 +1,12 @@
 import { signOut } from 'next-auth/react';
 import { useState } from 'react';
 import { useSession } from 'next-auth/react';
+import { useRouter } from 'next/navigation';
 
-const UserButton = () => {
+const MyButton = () => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const { data: session, status } = useSession();
+  const router = useRouter();
 
   return (
     <>
@@ -35,7 +37,10 @@ const UserButton = () => {
         <div>
           쪽지
         </div>
-        <div onClick={() => signOut()}>
+        <div onClick={() => {
+          signOut();
+          router.push('/login');
+        }}>
           로그아웃
         </div>
       </div>
@@ -43,4 +48,4 @@ const UserButton = () => {
   );
 };
 
-export default UserButton;
+export default MyButton;

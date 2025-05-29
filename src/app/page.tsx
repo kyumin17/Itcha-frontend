@@ -6,7 +6,7 @@ import PostBlock from '@/components/common/PostBlock';
 import useFetch from '@/lib/hooks/useFetch';
 
 const Home = () => {
-  const { data: posts, error } = useFetch('/api/applications');
+  const { data: posts, error } = useFetch('/api/recruitments');
 
   return (
     <div>

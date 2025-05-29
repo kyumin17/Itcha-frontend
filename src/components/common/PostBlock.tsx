@@ -1,8 +1,8 @@
-import { PostProps } from '@/types/types';
+import { PostCreateProps } from '@/types/types';
 import FieldBox from './FieldBox';
 import TechBox from './TechBox';
 
-const PostBlock = ({ postData }: { postData: PostProps }) => {
+const PostBlock = ({ postData }: { postData: PostCreateProps }) => {
   return (
     <div className='border-b-1 border-gray-300 pt-4.5 pb-3 flex flex-col gap-3'>
       {/* post info */}

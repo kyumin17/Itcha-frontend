@@ -42,13 +42,19 @@ export interface PostsProps {
   results: string[];
 };
 
-export interface PostProps {
+export interface FieldProps {
   id: number;
-  applicant: string;
-  recruitment: string;
+  name: string;
+};
+
+export interface PostCreateProps {
+  type: 'project' | 'study';
+  title: string;
   content: string;
-  fields: string;
-}
+  deadline: string;
+  is_completed: boolean;
+  fields: FieldProps[];
+};
 
 export interface MemberProps {
   id: number;
