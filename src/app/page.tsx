@@ -1,5 +1,6 @@
 'use client';
 
+import PageWrapper from '@/components/common/PageWrapper';
 import Header from '@/components/header/Header';
 import ToolBar from '@/components/home/tool_bar/ToolBar';
 import PostBlock from '@/components/common/PostBlock';
@@ -9,7 +10,7 @@ const Home = () => {
   const { data: posts, error } = useFetch('/api/recruitments');
 
   return (
-    <div>
+    <PageWrapper>
       <Header />
       <ToolBar />
       <div className='mx-15'>
@@ -19,7 +20,7 @@ const Home = () => {
           );
         })}
       </div>
-    </div>
+    </PageWrapper>
   );
 }
 

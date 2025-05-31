@@ -9,11 +9,14 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@types/react-datepicker": "^7.0.0",
     "axios": "^1.9.0",
     "next": "15.3.1",
     "next-auth": "^4.24.11",
     "react": "^19.0.0",
-    "react-dom": "^19.0.0"
+    "react-datepicker": "^8.4.0",
+    "react-dom": "^19.0.0",
+    "react-quill-new": "^3.4.6"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",

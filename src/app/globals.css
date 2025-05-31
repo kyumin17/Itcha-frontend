@@ -24,3 +24,15 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+.react-datepicker__input-container > input {
+  cursor: pointer;
+  border: 1px solid #B7B7B7;
+  padding-left: 10px;
+  border-radius: 5px;
+  width: 8rem;
+}
+
+.react-datepicker__input-container > input:focus {
+  outline: none;
+}
