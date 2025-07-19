@@ -1,20 +1,20 @@
 import { SignupDTO } from '@/types/dto';
 import http from './http';
 
-const signup = async (username: string, password: string, name: string, email: string) => {
+const signup = async (id: string, pw: string, name: string, email: string) => {
   let response: SignupDTO = {
     state: 'fail',
     error: '',
   };
 
-  if (!(username && password && name && email)) {
+  if (!(id && pw && name && email)) {
     response.error = '모든 필드를 입력해주세요';
     return response;
   }
 
   const form = {
-    username: username,
-    password: password,
+    username: id,
+    password: pw,
     name: name,
     email: email,
   };

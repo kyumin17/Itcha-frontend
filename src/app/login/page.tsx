@@ -5,6 +5,7 @@ import { signIn, SignInResponse } from 'next-auth/react';
 import { useRouter } from 'next/navigation';
 import InputBox from '@/components/common/InputBox';
 import Gap from '@/components/common/Gap';
+import Button from '@/components/common/Button';
 
 const Login = () => {
   const [id, setId] = useState<string>('');
@@ -29,7 +30,7 @@ const Login = () => {
   }
 
   return (
-    <div className='px-5 top-[50%] translate-y-[50%] max-w-120 m-auto'>
+    <div className='px-5 top-[50%] translate-y-[50%] max-w-110 m-auto'>
       <div className='text-red-700 text-3xl font-bold text-center'>
         Itcha
       </div>
@@ -78,19 +79,19 @@ const Login = () => {
       <Gap height={7} />
 
       {/* login button */}
-      <button 
-        className='bg-red-700 w-[100%] text-white rounded-sm h-12 font-medium'
-        onClick={login}
-      >
-        로그인
-      </button>
+      <Button
+        label='로그인'
+        handleClick={login}
+        isActivate={id.length !== 0 && pw.length !== 0}
+        color='red'
+      />
 
       <Gap height={3} />
 
       <button 
-        className='w-[100%] text-red-700 h-12 font-medium'
+        className='w-[100%] text-red-700 h-8 font-medium text-[14px]'
         onClick={() => {
-          router.push('/signup');
+          router.push('/signup/id');
         }}
       >
         회원가입
